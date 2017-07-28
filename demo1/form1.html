@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>输入框失去焦点验证</title>
+    <style>
+       p label:nth-of-type(2){
+           margin-left:20px;
+           color:red;
+       }
+    </style>
+    <!--<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>-->
+    <!--<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>-->
+    <!--<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>-->
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="../node_modules/jquery-validation/dist/localization/messages_zh.js"></script>
+    <script>
+
+
+        $.validator.setDefaults({
+            submitHandler: function () {
+                alert("提交事件!");
+            }
+        });
+        $().ready(function () {
+            $("#commentForm").validate();
+        });
+
+        
+    </script>
+    
+</head>
+
+<body>
+    <form class="cmxform" id="commentForm" method="get" action="">
+        <fieldset>
+            <legend>输入您的名字，邮箱，URL，备注。</legend>
+            <p>
+                <label for="cname"></label>
+                <input id="cname" name="name" minlength="2" type="text" required>
+            </p>
+            <p>
+                <label for="cemail"></label>
+                <input id="cemail" type="email" name="email" required="true">
+            </p>
+            <p>
+                <label for="curl"></label>
+                <input id="curl" type="url" name="url">
+            </p>
+            <p>
+                <label for="ccomment"></label>
+                <textarea id="ccomment" name="comment" required></textarea>
+            </p>
+            <p>
+                <input class="submit" type="submit" value="Submit">
+            </p>
+        </fieldset>
+    </form>
+</body>
+
+</html>
